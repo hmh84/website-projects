@@ -6,6 +6,67 @@
         "outputDirToCopy": "build",
         "destinationPath": "drexel/idmi399",
         "useLocalCopy": false,
-        "localReposPath": "C:/work"
+        "localReposPath": "C:/work",
+        "skip": true
+    },
+    {
+        "repoUrl": "https://github.com/hmh84/block-run",
+        "repoBranch": "master",
+        "buildCommand": "",
+        "outputDirToCopy": "./",
+        "destinationPath": "block-run",
+        "useLocalCopy": false,
+        "localReposPath": "C:/work",
+        "skip": true
+    },
+    {
+        "repoUrl": "https://github.com/hmh84/idm331",
+        "repoBranch": "main",
+        "buildCommand": "npm i && npm run build",
+        "outputDirToCopy": "dist",
+        "destinationPath": "drexel/idm331",
+        "useLocalCopy": false,
+        "localReposPath": "C:/work",
+        "skip": true
+    },
+    {
+        "repoUrl": "https://github.com/hmh84/idm231",
+        "repoBranch": "master",
+        "buildCommand": "npm i && npm run build",
+        "outputDirToCopy": "dist",
+        "destinationPath": "drexel/idm231",
+        "useLocalCopy": false,
+        "localReposPath": "C:/work",
+        "skip": true
+    },
+    {
+        "repoUrl": "https://github.com/hmh84/tic-tac-toe",
+        "repoBranch": "main",
+        "buildCommand": "npm i && npm run build",
+        "outputDirToCopy": "dist",
+        "destinationPath": "tic-tac-toe",
+        "useLocalCopy": false,
+        "localReposPath": "C:/work",
+        "skip": true
+    },
+    {
+        "repoUrl": "https://github.com/hmh84/idm241",
+        "repoBranch": "master",
+        "buildCommand": "",
+        "outputDirToCopy": "./",
+        "destinationPath": "drexel/idm241",
+        "useLocalCopy": false,
+        "localReposPath": "C:/work",
+        "skip": true
+    },
+    {
+        "repoUrl": "https://github.com/hmh84/idm215",
+        "repoBranch": "master",
+        "buildCommand": "",
+        "outputDirToCopy": "./",
+        "destinationPath": "drexel/idm215",
+        "useLocalCopy": false,
+        "localReposPath": "C:/work",
+        "skip": true
     }
 ]

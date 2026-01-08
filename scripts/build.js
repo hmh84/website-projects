@@ -31,7 +31,12 @@ console.log({ config: projects });
 
 async function run() {
     for (const project of projects) {
-        const { repoUrl, repoBranch, buildCommand, outputDirToCopy, destinationPath, useLocalCopy, localReposPath } = project;
+        const { skip, repoUrl, repoBranch, buildCommand, outputDirToCopy, destinationPath, useLocalCopy, localReposPath } = project;
+
+        if (skip) {
+            console.log(`⏭️ Skipping project: ${repoUrl}`);
+            continue;
+        }
 
         if (!repoUrl || !repoBranch || !outputDirToCopy || !destinationPath) {
             console.error("❌ Missing required project configuration.");
@@ -193,7 +198,7 @@ async function run() {
         fs.mkdirSync(dest, { recursive: true });
         fs.cpSync(src, dest, { recursive: true });
 
-        console.log(`✅ Deployed to ${dest}`);
+        console.log(`✅ Copied distro files to ${dest}`);
     }
 }
 

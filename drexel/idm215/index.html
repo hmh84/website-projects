@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="casestyle.css">
+    <script src="https://kit.fontawesome.com/080c06f1d6.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png"/>
+    <title>IMDb Case Study</title>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <button id="modeSwitcher" onclick="darkMode()">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        function darkMode() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+    <!-- <p id="headerParagraph"></p> -->
+</div>
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="main">
+    <h1 class="caseHeader">IMDb REDESIGN: CASE STUDY</h1>
+    <p class="pUnderImg">By Melissa Gabriele, Hunter Hampton, Gabrielle Hoover, Devin Taylor and James Zangari</p>
+    <h2>OVERVIEW</h2>
+    <p>For such a popular service, IMDb’s app is confusing and tedious to navigate. Users want ease when browsing IMDb in order to quickly find the content they are looking for. This IMDb redesign focuses on a <strong>seamless interaction</strong> with a <strong>simplified interface</strong>, no repeated information, and prominence for the most important information to users based on surveys and user tests.</p>
+
+    <p>For the <strong>home page</strong>, the redesign focuses on grouping popular content into an easily browsable section by genre and content type. This is similar to IMDb’s current home page, but much easier to navigate and provides more content for the user to browse. The <strong>IMDb TV</strong> section was removed from the base IMDb app due to lack of knowledge and use of this section. IMDb TV will be a secondary app strictly for streaming. An advertisement for this app is added to the top section of the home page. The <strong>profile page</strong> was updated to make content saved to watchlists, favorited, rated, and reviewed easier to navigate. Users also have the option to share these sections or make them public to all users.</p>
+      
+    <p>The <strong>search page</strong> was confusing to users due to filtering sections being separated between different windows of the page. For the redesign, the search filters have been moved to a universal filters section that is accessible on all versions of the search page (before, during, and after the search). The <strong>selected content</strong> page was greatly reduced into a page that is much more straightforward to navigate. Users no longer need to scroll down a long page of content to find the sections they are looking for.</p>
+      
+    <p>This redesign focuses on creating a <strong>better experience for the users</strong> of IMDb. This is achieved by grouping like content, highlighting important content, and shortening long sections of vertical scroll to horizontal scroll sections. Throughout the testing, users have given positive reactions to the changes made, showing that this redesign is a pleasant user experience.</p>
+
+    <h2>CONTEXT & CHALLENGE</h2>
+    <p>IMDb is a popular online database consisting of information related to fims, television, video games, etc. IMDb is well known and trusted, but their application is frustrating and tedious to navigate. Our team redesigned this app with the purpose of creating an interface that is easy and pleasant to use while still featuring the content users come to see.</p>
+
+    <p>This project is a team redesign for IMDb’s mobile app. As a team, we met weekly and divided the work evenly between each member. Hunter was chosen as the project manager, with the rest of the group being the UX/ UI team. We worked together on the documents and visual designs needed to complete the project.</p>
+
+    <p>The goals of this redesign are to provide the content users come to IMDb for in a way that is easier for users to navigate/ browse. The success of this redesign is measured by user feedback. This redesign began with a user survey, worded to determine what users like/dislike about IMDb’s current app and what functions/pages are used the most. Based on this information a design was built and went through 1 stage of interviews and 4 stages of testing with changes being implemented based on the testing feedback. The goals of the redesign were kept in mind as we worked through the changes for each week.</p>
+
+    <h2>THE PROCESS AND INSIGHT</h2>
+    <p>The process started off with our team discussing what we thought should and shouldn't be included in the app, inputting our own thoughts, and drafting ideas for how each major screen would be, performed initial interviews on prospective users and combined our findings, this data was then used to create a rough wireframe of the design.</p>
+
+    <p>Each week our team performed individual prototype interviews on each major stage of the project, we then met to discuss our findings and as a group decided on design choices surrounding those findings. We chose to use Figma for design collaboration as it offers great collaborative modes. Afterwards, we each took an area to work on and developed it to the brief.</p>
+
+    <p>Getting to test four different times was very insightful, as the prototype sessions guided much of our design choices. As younger designers we naturally went for more modern aesthetics, but the average user is not the same demographic as us. Concessions were made accordingly, reminding us that <strong>WE</strong> are not the average user.</p>
+
+    <h2>RESEARCH</h2>
+    <h4>TARGET AUDIENCE</h4>
+    <p>For this project, our research began with a general survey we sent to IMDb’s target audience to gain insight into peoples’ impressions of IMDb’s app and what people use IMDb’s app for.</p>
+    <img src="images/usersurvey1.png" class="image">
+    <img src="images/usersurvey2.png" class="image">
+    <img src="images/usersurvey3.png" class="image">
+
+    <p>Following this user survey, we interviewed ten users over the phone with more specific questions about app use and the content they want to see. We then used this information to begin our initial redesign layouts.</p>
+
+    <h4>USER PERSONAS</h4>
+    <p>We created five user personas based on the five largest user types of IMDb. These personas helped us get into the mindset of the user, thinking about our redesign from their perspective.</p>
+    <img src="images/hmh84-persona.jpg" class="image">
+
+    <h4>AFFINITY MAPS</h4>
+    <p>We created an affinity map based on the feedback we got from our surveys and phone interviews. Organizing the content into the following sections: positive (for positive reviews on the app), negative (for negative reviews on usability), competitor (for reviews about competitors, things competitors do that users like/dislike), quantitative (numerical data from our survey), uses (what users use IMDb for), and app (comments specifically about the app).</p>
+    <img src="images/affinitymap1.jpg" class="image">
+    <img src="images/affinitymap2.jpg" class="image">
+
+    <h4>USER JOURNEYS</h4>
+    <p>We used our survey data and user profiles to create a journey map based on a typical user interaction with IMDb’s app. This helped us to see low points in a user's journey and capitalize on them when deciding on changes for the redesign.</p>
+    <img src="images/journeymap.png" class="image">
+
+    <h4>TASK FLOWS</h4>
+    <p>Using the knowledge we gained from our mapping and survey we created current and future task flows for the main functions of IMDb’s app. This allowed us to begin visualizing the new user experience we planned to build.</p>
+    <img src="images/search-taskflow.png" class="image">
+
+    <h4>DESIGN SKETCHES</h4>
+    <p>This led us to sketches. When sketching ideas for the pages we worked individually, thinking about our maps, survey results, and user personas as we brainstormed ideas. We came together with our sketches, compiling and combining our best ideas to create our initial wireframes.</p>
+    <img src="images/sketches.jpg" class="image">
+
+    <h4>MOOD BOARD</h4>
+    <p>We created a mood board for IMDb; pulling in images, colors, and fonts as inspiration for the redesign. Our mood board helped us move towards a decision for visuals for the redesign.</p>
+    <img src="images/moodboard.jpg" class="image">
+
+    <h4>STYLE GUIDE</h4>
+    <img src="images/style_guide.png" class="image">
+
+    <h2>LOW FIDELITY PROTOTYPE</h2>
+    <p>For our initial wireframes, we combined different ideas from everyone’s design sketches. The focus of this initial design is content and flow. We focused on expected content vs provided content and flow when we did our first rounds of user tests.
+    </p>
+    <img src="images/wireframes_v1.jpg" id="fix1" class="image" alt="prototype image" attr="wframe">
+    <span class="imageCaption">Homepage for low-fidelity prototype</span>
+
+    <p class="pUnderImg">Visit the working sample for this project here:</p>
+    <a href="https://www.figma.com/proto/ALEzcDxmkiuQbwWItFstMa/Wireframes-Stage-1?scaling=scale-down&node-id=5%3A10" target="_blank" class="projectButton">Low Fidelity Prototype</a>
+
+    <h2>MID FIDELITY PROTOTYPE</h2>
+    <p>For our next round of wireframes, we used user feedback to make changes, adding color, images, and fonts.  We went with a darker scheme, using IMDbs logo colors. We used the accent color to draw the user’s eye to important content/buttons. We filled the home page with vertical image cards and the profile page with horizontal image cards to avoid too much similarity throughout the application. We focused on expected content vs provided content, flow,  aesthetics, and readability for our last round of user tests before our final design.
+    </p>
+    <img src="images/wireframes_v4.jpg" id="fix2" class="image" alt="prototype image" attr="wframe">
+    <span class="imageCaption">Homepage for final prototype</span>
+
+    <p class="pUnderImg">Visit the working sample for this project here:</p>
+    <a href="https://www.figma.com/proto/2JYa3eYaRNWVfaTToqq7eA/Wireframes-High-Fidelity?node-id=174%3A202&scaling=scale-down" target="_blank" class="projectButton">Mid Fidelity Prototype</a>
+
+    <h2>FINAL PROTOTYPE</h2>
+    <p>For our final round of wireframes, we got largely positive feedback, but still had a few changes to make based on feedback. We adjusted spacing, some accent colors, sizing, and scroll on the filters section. Users found the nap easy to navigate, and the content to be what they expected if not more than what they expected. We will follow up with a final round of user tests to ensure all redesign goals are met.
+    </p>
+    <img src="images/wireframes_v5.jpg" id="fix3" class="image" alt="prototype image" attr="wframe">
+    <span class="imageCaption">Homepage for mid-fidelity prototype</span>
+
+    <p class="pUnderImg">Visit the working sample for this project here:</p>
+    <a href="https://www.figma.com/proto/2JYa3eYaRNWVfaTToqq7eA/Wireframes-High-Fidelity?node-id=174%3A202&scaling=scale-down" target="_blank" class="projectButton">High Fidelity Prototype</a>
+  </div> 
+</div>
+
+<!-- Footer -->
+
+</body>
+</html>

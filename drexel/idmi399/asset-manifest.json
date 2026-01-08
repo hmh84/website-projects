@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.62e67484.css",
+    "main.js": "/static/js/main.ec2911b2.js",
+    "static/media/modal-pre.mov": "/static/media/modal-pre.9cd7f4ef780be5812174.mov",
+    "static/media/reduced-motion.mov": "/static/media/reduced-motion.804bd647d5556ac4caf1.mov",
+    "static/media/typewrite-pre.mov": "/static/media/typewrite-pre.a111638acf46c4cf4fb7.mov",
+    "static/media/typewrite-post.mov": "/static/media/typewrite-post.3e7ade08e22c5e9a66ba.mov",
+    "static/media/modal-post.mov": "/static/media/modal-post.31467a3d8200f16865d8.mov",
+    "static/media/max-chars.png": "/static/media/max-chars.c2f2314760b3eaf3bcea.png",
+    "static/media/reduced-motion-snippet.png": "/static/media/reduced-motion-snippet.f48d54a15d63a635be2d.png",
+    "static/media/focus-within.png": "/static/media/focus-within.6bb8d3096a12e9e98b70.png",
+    "index.html": "/index.html",
+    "main.62e67484.css.map": "/static/css/main.62e67484.css.map",
+    "main.ec2911b2.js.map": "/static/js/main.ec2911b2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.62e67484.css",
+    "static/js/main.ec2911b2.js"
+  ]
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Scripts -->
+    <script src="scripts/swiped-events.js" defer></script>
+    <script type="module" src="scripts/main.js" defer></script>
+    <!-- Meta -->
+    <meta property="og:title" content="Block Run">
+    <meta property="og:image" content="http://hunterhdesign.com/block-run/graphics/preview.png">
+    <meta property="og:description" content="Never Give up.">
+</head>
+
+<body>
+    <div id="hud">
+        <div id="title">Press Space Start</div>
+        <button id="restart">Start</button>
+        <div id="subtitle">
+            <p>Jump: W, Up, or Space</p>
+            <p>Duck: S or Down</p>
+        </div>
+    </div>
+    <main>
+        <div id="top" class="row">
+            <!-- Clouds -->
+            <div id="clouds" class="row">
+                <div class="cloud cloud_slide"></div>
+                <div class="cloud cloud_slide"></div>
+            </div>
+            <div id="stars" class="row">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+        </div>
+        <div id="mid" class="row">
+            <!-- The Field -->
+            <div id="character">
+                <div class="row" id="eyes">
+                    <span id="eye1"></span><span id="eye2"></span>
+                </div>
+                <span id="mouth"></span>
+            </div>
+            <div id="obstruction"></div>
+        </div>
+        <div id="btm" class="">
+            <!-- The Ground -->
+        </div>
+    </main>
+</body>
+
+</html>

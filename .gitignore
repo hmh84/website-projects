@@ -1,0 +1,11 @@
+package-lock.json
+/node_modules
+/projects-site
+/temp-repos
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+*.env.*

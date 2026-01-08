@@ -1,0 +1,11 @@
+[
+    {
+        "repoUrl": "https://github.com/hmh84/idmi399",
+        "repoBranch": "master",
+        "buildCommand": "npm i && npm run build",
+        "outputDirToCopy": "build",
+        "destinationPath": "drexel/idmi399",
+        "useLocalCopy": false,
+        "localReposPath": "C:/work"
+    }
+]

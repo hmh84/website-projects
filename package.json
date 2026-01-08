@@ -1,0 +1,16 @@
+{
+	"homepage": "https://projects.hunterham.digital",
+  "name": "website-projects",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "upload": "gh-pages -d build --cname projects.hunterham.digital",
+    "deploy": "npm run build && npm run upload"
+  },
+  "author": "Hunter Hampton",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

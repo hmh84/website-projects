@@ -31,7 +31,7 @@ console.log({ config: projects });
 
 async function run() {
     for (const project of projects) {
-        const { skip, repoUrl, repoBranch, buildCommand, outputDirToCopy, destinationPath, useLocalCopy, localReposPath } = project;
+        const { skip, repoUrl, repoBranch, buildCommand, outputDirToCopy, destinationPath } = project;
 
         if (skip) {
             console.log(`⏭️ Skipping project: ${repoUrl}`);
@@ -54,110 +54,74 @@ async function run() {
         let tempRepoDir = path.join(tempReposDir, repoFolderName);
 
         // -----------------------------
-        // Local copy mode
+        // Clone / update mode
         // -----------------------------
-        if (useLocalCopy) {
-            if (!localReposPath) {
-                console.error("❌ 'localReposPath' must be specified when 'useLocalCopy' is true.");
-                return;
+        if (!fs.existsSync(tempRepoDir)) {
+            console.log(`⬇️ Cloning ${repoUrl}`);
+            execSync(`git clone ${repoUrl} "${tempRepoDir}"`, {
+                stdio: "inherit"
+            });
+        } else {
+            if (!isGitRepo(tempRepoDir)) {
+                console.log(`ℹ️ ${repoFolderName} is not a git repo`);
+                continue;
             }
 
-            const localRepoDir = path.resolve(localReposPath, repoFolderName);
+            execSync(`git remote set-url origin ${repoUrl}`, {
+                cwd: tempRepoDir,
+                stdio: "inherit"
+            });
 
-            if (!fs.existsSync(localRepoDir)) {
-                console.error(`❌ Local repo does not exist: ${localRepoDir}`);
-                return;
-            }
-
-            console.log(`📁 Using local copy for ${repoFolderName}`);
-            tempRepoDir = localRepoDir;
-
+            // ✅ Checkout must always run inside the repo folder
             execSync(`git checkout ${repoBranch}`, {
                 cwd: tempRepoDir,
                 stdio: "inherit"
             });
-        }
 
-        // -----------------------------
-        // Clone / update mode
-        // -----------------------------
-        else {
-            if (!fs.existsSync(tempRepoDir)) {
-                console.log(`⬇️ Cloning ${repoUrl}`);
-                execSync(`git clone ${repoUrl} "${tempRepoDir}"`, {
-                    stdio: "inherit"
-                });
-            } else {
-                // -----------------------------
-                // Check for local git changes
-                // -----------------------------
-                let hasChanges = false;
-                let status = "";
+            // -----------------------------
+            // Check for local git changes
+            // -----------------------------
+            let hasChanges = false;
+            let status = "";
 
-                if (!isGitRepo(tempRepoDir)) {
-                    console.log(`ℹ️ ${repoFolderName} is not a git repo`);
+            try {
+                status = execSync("git status --porcelain", {
+                    cwd: tempRepoDir
+                }).toString().trim();
+
+                hasChanges = status.length > 0;
+            } catch (err) {
+                console.warn(`⚠️ Could not determine git status for ${repoFolderName}`);
+            }
+
+            if (hasChanges) {
+                console.log(`⚠️ Local changes detected in ${repoFolderName}`);
+                console.log(status);
+
+                const answer = await askQuestion(
+                    "Choose: [c]ontinue, [s]kip, [d]iscard changes, [a]bort: "
+                );
+
+                if (answer === "a") {
+                    console.log("❌ Aborted by user.");
+                    process.exit(1);
+                }
+
+                if (answer === "s") {
+                    console.log(`⏭️ Skipping update for ${repoFolderName}`);
                     continue;
                 }
 
-                execSync(`git remote set-url origin ${repoUrl}`, {
-                    cwd: tempRepoDir,
-                    stdio: "inherit"
-                });
+                if (answer === "d") {
+                    console.log("🧹 Discarding local changes...");
 
-                // ✅ Checkout must always run inside the repo folder
-                execSync(`git checkout ${repoBranch}`, {
-                    cwd: tempRepoDir,
-                    stdio: "inherit"
-                });
+                    execSync("git reset --hard", {
+                        cwd: tempRepoDir,
+                        stdio: "inherit"
+                    });
 
-                try {
-                    status = execSync("git status --porcelain", {
-                        cwd: tempRepoDir
-                    }).toString().trim();
+                    console.log(`🔄 Updating ${repoFolderName}`);
 
-                    hasChanges = status.length > 0;
-                } catch (err) {
-                    console.warn(`⚠️ Could not determine git status for ${repoFolderName}`);
-                }
-
-                if (hasChanges) {
-                    console.log(`⚠️ Local changes detected in ${repoFolderName}`);
-                    console.log(status);
-
-                    const answer = await askQuestion(
-                        "Choose: [c]ontinue, [d]iscard changes, [a]bort: "
-                    );
-
-                    if (answer === "a") {
-                        console.log("❌ Aborted by user.");
-                        process.exit(1);
-                    }
-
-                    if (answer === "d") {
-                        console.log("🧹 Discarding local changes...");
-
-                        execSync("git reset --hard", {
-                            cwd: tempRepoDir,
-                            stdio: "inherit"
-                        });
-
-                        console.log(`🔄 Updating ${repoFolderName}`);
-
-                        execSync(`git fetch`, {
-                            cwd: tempRepoDir,
-                            stdio: "inherit"
-                        });
-
-                        execSync(`git pull origin ${repoBranch}`, {
-                            cwd: tempRepoDir,
-                            stdio: "inherit"
-                        });
-                    }
-
-                    if (answer === "c") {
-                        console.log("▶️ Continuing with changes...");
-                    }
-                } else {
                     execSync(`git fetch`, {
                         cwd: tempRepoDir,
                         stdio: "inherit"
@@ -168,6 +132,20 @@ async function run() {
                         stdio: "inherit"
                     });
                 }
+
+                if (answer === "c") {
+                    console.log("▶️ Continuing with changes...");
+                }
+            } else {
+                execSync(`git fetch`, {
+                    cwd: tempRepoDir,
+                    stdio: "inherit"
+                });
+
+                execSync(`git pull origin ${repoBranch}`, {
+                    cwd: tempRepoDir,
+                    stdio: "inherit"
+                });
             }
         }
 
@@ -197,6 +175,11 @@ async function run() {
         fs.rmSync(dest, { recursive: true, force: true });
         fs.mkdirSync(dest, { recursive: true });
         fs.cpSync(src, dest, { recursive: true });
+
+        if (buildCommand && (buildCommand.length > 0) && (outputDirToCopy !== "./")) {
+            console.log(`🧹 Removing temporary repo build folder for ${repoFolderName}...`);
+            fs.rmSync(src, { recursive: true, force: true });
+        }
 
         console.log(`✅ Copied distro files to ${dest}`);
     }

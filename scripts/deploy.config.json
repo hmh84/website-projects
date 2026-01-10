@@ -5,8 +5,6 @@
         "buildCommand": "npm i && npm run build",
         "outputDirToCopy": "build",
         "destinationPath": "drexel/idmi399",
-        "useLocalCopy": false,
-        "localReposPath": "C:/work",
         "skip": true
     },
     {
@@ -15,8 +13,6 @@
         "buildCommand": "",
         "outputDirToCopy": "./",
         "destinationPath": "block-run",
-        "useLocalCopy": false,
-        "localReposPath": "C:/work",
         "skip": true
     },
     {
@@ -25,8 +21,6 @@
         "buildCommand": "npm i && npm run build",
         "outputDirToCopy": "dist",
         "destinationPath": "drexel/idm331",
-        "useLocalCopy": false,
-        "localReposPath": "C:/work",
         "skip": true
     },
     {
@@ -35,8 +29,6 @@
         "buildCommand": "npm i && npm run build",
         "outputDirToCopy": "dist",
         "destinationPath": "drexel/idm231",
-        "useLocalCopy": false,
-        "localReposPath": "C:/work",
         "skip": true
     },
     {
@@ -45,8 +37,6 @@
         "buildCommand": "npm i && npm run build",
         "outputDirToCopy": "dist",
         "destinationPath": "tic-tac-toe",
-        "useLocalCopy": false,
-        "localReposPath": "C:/work",
         "skip": true
     },
     {
@@ -55,8 +45,6 @@
         "buildCommand": "",
         "outputDirToCopy": "./",
         "destinationPath": "drexel/idm241",
-        "useLocalCopy": false,
-        "localReposPath": "C:/work",
         "skip": true
     },
     {
@@ -65,8 +53,6 @@
         "buildCommand": "",
         "outputDirToCopy": "./",
         "destinationPath": "drexel/idm215",
-        "useLocalCopy": false,
-        "localReposPath": "C:/work",
         "skip": true
     }
 ]

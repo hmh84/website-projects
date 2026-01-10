@@ -1,1 +1,1 @@
-When testing, change the package.json `homepage` to `https://hmh84.github.io/website-projects` and "scripts.upload" to just "gh-pages -d projects-site" (remove the domain setter)
+When testing, change the package.json `homepage` to `https://hmh84.github.io/website-projects-subdomain` and "scripts.upload" to just "gh-pages -d projects-site" (remove the domain setter)

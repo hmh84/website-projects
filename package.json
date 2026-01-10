@@ -1,6 +1,6 @@
 {
 	"homepage": "https://projects.hunterham.digital",
-  "name": "website-projects",
+  "name": "website-projects-subdomain",
   "version": "1.0.0",
   "scripts": {
     "build": "node scripts/build.js",

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "node scripts/build.js",
-    "upload": "gh-pages -d build --cname projects.hunterham.digital",
+    "upload": "gh-pages -d projects-site --cname projects.hunterham.digital",
     "deploy": "npm run build && npm run upload"
   },
   "author": "Hunter Hampton",

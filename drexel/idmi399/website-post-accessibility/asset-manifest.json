@@ -1,11 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.b13426db.css",
-    "main.js": "./static/js/main.4c183363.js",
-    "index.html": "./index.html"
+    "main.css": "website-projects/drexel/idmi399/website-post-accessibility/static/css/main.353b01b1.chunk.css",
+    "main.js": "website-projects/drexel/idmi399/website-post-accessibility/static/js/main.50f7dada.chunk.js",
+    "runtime-main.js": "website-projects/drexel/idmi399/website-post-accessibility/static/js/runtime-main.b381626c.js",
+    "static/js/2.8cd9083e.chunk.js": "website-projects/drexel/idmi399/website-post-accessibility/static/js/2.8cd9083e.chunk.js",
+    "index.html": "website-projects/drexel/idmi399/website-post-accessibility/index.html",
+    "static/js/2.8cd9083e.chunk.js.LICENSE.txt": "website-projects/drexel/idmi399/website-post-accessibility/static/js/2.8cd9083e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/css/main.b13426db.css",
-    "static/js/main.4c183363.js"
+    "static/js/runtime-main.b381626c.js",
+    "static/js/2.8cd9083e.chunk.js",
+    "static/css/main.353b01b1.chunk.css",
+    "static/js/main.50f7dada.chunk.js"
   ]
 }

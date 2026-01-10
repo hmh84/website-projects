@@ -8,6 +8,22 @@
         "skip": true
     },
     {
+        "repoUrl": "https://github.com/hmh84/website",
+        "repoBranch": "master",
+        "buildCommand": "npm i && npm run build",
+        "outputDirToCopy": "build",
+        "destinationPath": "drexel/idmi399/website-post-accessibility",
+        "skip": true
+    },
+    {
+        "repoUrl": "https://github.com/hmh84/website",
+        "repoBranch": "website-pre-accessibility",
+        "buildCommand": "npm i && npm run build",
+        "outputDirToCopy": "build",
+        "destinationPath": "drexel/idmi399/website-pre-accessibility",
+        "skip": true
+    },
+    {
         "repoUrl": "https://github.com/hmh84/block-run",
         "repoBranch": "master",
         "buildCommand": "",

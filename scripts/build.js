@@ -51,13 +51,13 @@ async function run() {
             return;
         }
 
-        let tempRepoDir = path.join(tempReposDir, repoFolderName);
+        const tempRepoDir = path.join(tempReposDir, repoFolderName + `_${repoBranch}`);
 
         // -----------------------------
         // Clone / update mode
         // -----------------------------
         if (!fs.existsSync(tempRepoDir)) {
-            console.log(`⬇️ Cloning ${repoUrl}`);
+            console.log(`⬇️ Cloning ${repoUrl} to ${tempRepoDir}`);
             execSync(`git clone ${repoUrl} "${tempRepoDir}"`, {
                 stdio: "inherit"
             });
@@ -67,12 +67,7 @@ async function run() {
                 continue;
             }
 
-            execSync(`git remote set-url origin ${repoUrl}`, {
-                cwd: tempRepoDir,
-                stdio: "inherit"
-            });
-
-            // ✅ Checkout must always run inside the repo folder
+            console.log(`Checking out branch ${repoBranch} for ${repoFolderName}...`);
             execSync(`git checkout ${repoBranch}`, {
                 cwd: tempRepoDir,
                 stdio: "inherit"
@@ -108,25 +103,26 @@ async function run() {
                 }
 
                 if (answer === "s") {
-                    console.log(`⏭️ Skipping update for ${repoFolderName}`);
+                    console.log(`⏭️ Skipping update for ${repoFolderName} ${repoBranch}...`);
                     continue;
                 }
 
                 if (answer === "d") {
                     console.log("🧹 Discarding local changes...");
 
+                    console.log(`Hard resetting to latest changes for ${repoFolderName} ${repoBranch}...`);
                     execSync("git reset --hard", {
                         cwd: tempRepoDir,
                         stdio: "inherit"
                     });
 
-                    console.log(`🔄 Updating ${repoFolderName}`);
-
+                    console.log(`Fetching latest changes for ${repoFolderName} ${repoBranch}...`);
                     execSync(`git fetch`, {
                         cwd: tempRepoDir,
                         stdio: "inherit"
                     });
 
+                    console.log(`Pulling latest changes for ${repoFolderName} ${repoBranch}...`);
                     execSync(`git pull origin ${repoBranch}`, {
                         cwd: tempRepoDir,
                         stdio: "inherit"
@@ -137,11 +133,13 @@ async function run() {
                     console.log("▶️ Continuing with changes...");
                 }
             } else {
+                console.log(`Fetching latest changes for ${repoFolderName} ${repoBranch}...`);
                 execSync(`git fetch`, {
                     cwd: tempRepoDir,
                     stdio: "inherit"
                 });
 
+                console.log(`Pulling latest changes for ${repoFolderName} ${repoBranch}...`);
                 execSync(`git pull origin ${repoBranch}`, {
                     cwd: tempRepoDir,
                     stdio: "inherit"
@@ -176,12 +174,12 @@ async function run() {
         fs.mkdirSync(dest, { recursive: true });
         fs.cpSync(src, dest, { recursive: true });
 
+        console.log(`✅ Copied distro files to ${dest}`);
+
         if (buildCommand && (buildCommand.length > 0) && (outputDirToCopy !== "./")) {
             console.log(`🧹 Removing temporary repo build folder for ${repoFolderName}...`);
             fs.rmSync(src, { recursive: true, force: true });
         }
-
-        console.log(`✅ Copied distro files to ${dest}`);
     }
 }
 
